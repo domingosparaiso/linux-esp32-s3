@@ -5,8 +5,12 @@ apt update
 apt upgrade
 apt install -y git make cmake gcc automake flex bison texinfo help2man gawk libtool libtool-bin libncurses-dev libc++-dev g++ bzip2 xz-utils unzip bc rsync cpio gperf zlib1g zlib1g-dev wget sudo
 
-mkdir -p /opt/esp32
-chown -R esp32:esp32 /opt/esp32
+# verifica se existe o usuario "esp32"
+sudo -u esp32 whoami 2> /dev/null
+if [ $? -ne 0 ]; then
+  useradd -m -d /home/esp32 esp32
+fi
+mkdir -p /opt/esp32/src
 
 ./install-python.sh
 ./install-autoconf.sh
