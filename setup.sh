@@ -4,8 +4,11 @@ apt update
 apt upgrade
 apt install git make cmake gcc automake flex bison texinfo help2man gawk libtool libtool-bin libncurses-dev libc++-dev g++ bzip2 xz-utils unzip bc rsync cpio gperf zlib1g zlib1g-dev wget
 
-mkdir -p /opt/esp32
+mkdir -p /opt/esp32/scritps
 chown -R esp32:esp32 /opt/esp32
+
+cp install-*.sh /opt/esp32/scritps
+cd /opt/esp32/scritps
 
 /opt/esp32/scripts/install-python.sh
 /opt/esp32/scripts/install-autoconf.sh
